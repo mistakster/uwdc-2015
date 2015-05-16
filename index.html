@@ -166,9 +166,39 @@
     <section class="slide">
         <div>
             <h2>matchMedia</h2>
-            <p style="width: 390px;">Статья и исходный код примеров у&nbsp;меня в&nbsp;блоге:<br>
+            <p style="width: 390px;">Статья и примеры у&nbsp;меня в&nbsp;блоге:<br>
                 <a href="http://noteskeeper.ru/1133/" target="_blank">noteskeeper.ru/1133</a></p>
             <img src="assets/matchmedia-noteskeeper.png" style="position: absolute; width: 480px; top: 82px; right: 0;">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Медиа-запросы не работают в IE &lt;= 8</h2>
+            <p class="next">Пользователи этих браузеров увидят «мобильную» версию сайта.</p>
+            <p class="next">Можно сформировать стили специально для IE 8 без медиа-запросов.<br>
+                Раскроем все @media блоки с помощью плагина для PostCSS
+                <a style="white-space: nowrap;" target="_blank"
+                    href="https://www.npmjs.com/package/postcss-unwrap-at-media">postcss-unwrap-at-media</a>.</p>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <pre>
+                <code>var <mark>unwrapAtMedia</mark> = require('postcss-unwrap-at-media');</code>
+                <code>gulp.task('less', function () {</code>
+                <code>  return gulp.src('./src/**/*.less')</code>
+                <code>    .pipe(less())</code>
+                <code>    .pipe(gulp.dest('./dist/'))</code>
+                <code>    .pipe(postcss([ <mark>unwrapAtMedia</mark> ]))</code>
+                <code>    .pipe(rename({ suffix: '.ie8' }))</code>
+                <code>    .pipe(gulp.dest('./dist/'));</code>
+                <code>});</code>
+            </pre>
+        </div>
+    </section>
+    <section class="slide cover">
+        <div>
+            <img src="assets/less-to-css-and-ie8-css.png" alt="Перобразование LESS в CSS и CSS для IE8">
         </div>
     </section>
     <section class="slide shout">
