@@ -18,6 +18,6 @@ Also, I explain following topics:
 * Why we have started using “Mobile First” approach.
 * Why numbers of network requests matter especially for mobile environment.
 * How to use `matchMedia` to tracking environment.
+* How we improved process of compilation of styles.
 * How to implement responsive images using `<picture>` tag and its polyfills.
 * What benefits you can get from external image hosting and CDN.
-* How we improved speed of the compilation of styles.
